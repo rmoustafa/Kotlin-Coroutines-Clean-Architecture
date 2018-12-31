@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:layout_height="wrap_content"
+    android:background="@drawable/customer_item_selector"
+    android:weightSum="10">
+
+    <TextView
+        android:id="@+id/customer_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding = "10dp"
+        android:layout_weight="2"
+        android:layout_gravity="center_vertical"
+        tools:text="10"/>
+    <TextView
+        android:id="@+id/customer_fname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding = "10dp"
+        android:layout_gravity="center_vertical"
+        tools:text="first"/>
+    <TextView
+        android:id="@+id/custom_lname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding = "10dp"
+        android:layout_gravity="center_vertical"
+        tools:text="last"/>
+
+</LinearLayout>

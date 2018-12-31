@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Kotlin-CleanArchitecture</string>
+    <string name="title_activity_customers">CustomersActivity</string>
+    <string name="customer_title">Customers List</string>
+</resources>
