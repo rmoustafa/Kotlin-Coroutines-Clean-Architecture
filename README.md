@@ -23,11 +23,13 @@ Android Architecture components with clean Architectural reactive approach
 
 ## Libraries
 
-- Kotlin Language
+- AndroidX 
+- Android Architecture Components
 - Kotlin Coroutines
-- Android Architecture components (LiveData, Viewmodel, Room)
-- Dagger 2
-- Retrrofit 2.x
+- Dagger 2 for dependency injection
+- Retrofit for REST api communication
 - GSon
-- Timber
+- Timber for logging
+- espresso for UI tests
+- mockito for mocking in tests
 
