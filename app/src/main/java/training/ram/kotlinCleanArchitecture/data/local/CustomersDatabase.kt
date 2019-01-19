@@ -7,7 +7,7 @@ import training.ram.kotlinCleanArchitecture.data.entities.Customer
 /**
  * The Room database that contains the customer table
  */
-@Database(entities = arrayOf(Customer::class), version = 1)
+@Database(entities = [Customer::class], version = 1, exportSchema = false)
 abstract class CustomersDatabase : RoomDatabase(){
     abstract fun customerDao(): CustomerDAO
 }

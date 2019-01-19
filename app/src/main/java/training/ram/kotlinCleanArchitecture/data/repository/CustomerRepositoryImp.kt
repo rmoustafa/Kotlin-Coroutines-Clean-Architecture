@@ -6,7 +6,9 @@ import training.ram.kotlinCleanArchitecture.data.remote.ApiResponse
 import training.ram.kotlinCleanArchitecture.data.remote.ServiceApi
 import training.ram.kotlinCleanArchitecture.utils.safeApiCall
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class CustomerRepositoryImp @Inject constructor(private val apiServiceApi: ServiceApi, private val customerDao: CustomerDAO) :CustomerRepository{
 
     override suspend fun getCustomers(refresh: Boolean): ApiResponse<List<Customer>> {

@@ -10,13 +10,14 @@ import kotlinx.coroutines.launch
 import training.ram.kotlinCleanArchitecture.data.entities.Customer
 import training.ram.kotlinCleanArchitecture.data.remote.ApiResponse
 import training.ram.kotlinCleanArchitecture.domain.GetCustomersUseCase
+import javax.inject.Inject
 
 /**
  * expose data to view
  * trigger actions on use cases based on user actions
  * launch and cancel coroutines
  */
-class CustomersViewModel (private val getCustomersUseCase: GetCustomersUseCase): ViewModel(){
+class CustomersViewModel @Inject constructor(private val getCustomersUseCase: GetCustomersUseCase): ViewModel(){
     private val _customers = MutableLiveData<List<Customer>>()
     val customers: LiveData<List<Customer>>
         get() = _customers

@@ -9,9 +9,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import timber.log.Timber
 import training.ram.kotlinCleanArchitecture.data.remote.ServiceApi
-import training.ram.kotlinCleanArchitecture.di.scopes.ApplicationScope
 import training.ram.kotlin_cleanarchitecture.BuildConfig
 import java.util.concurrent.TimeUnit
+import javax.inject.Singleton
 
 @Module
 @Suppress("unused")
@@ -28,7 +28,7 @@ object NetworkModule {
      *
      */
     @Provides
-    @ApplicationScope
+    @Singleton
     @JvmStatic
     fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor{Timber.i(it)}.setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -39,7 +39,7 @@ object NetworkModule {
      * it could be used as a standalone http client
      */
     @Provides
-    @ApplicationScope
+    @Singleton
     @JvmStatic
     fun provideOkHttpClient(
         loggingInterceptor: HttpLoggingInterceptor
@@ -59,7 +59,7 @@ object NetworkModule {
 
 
     @Provides
-    @ApplicationScope
+    @Singleton
     @JvmStatic
     fun provideRetrofit(httpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
@@ -71,7 +71,7 @@ object NetworkModule {
     }
 
     @Provides
-    @ApplicationScope
+    @Singleton
     @JvmStatic
     fun provideServieceApi(retrofit: Retrofit): ServiceApi {
         return retrofit.create(ServiceApi::class.java)

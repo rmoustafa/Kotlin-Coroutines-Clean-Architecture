@@ -1,27 +1,30 @@
 package training.ram.kotlinCleanArchitecture.di.modules
 
+import android.content.Context
 import androidx.room.Room
 import dagger.Module
 import dagger.Provides
-import training.ram.kotlinCleanArchitecture.base.SampleApplication
 import training.ram.kotlinCleanArchitecture.data.local.CustomerDAO
 import training.ram.kotlinCleanArchitecture.data.local.CustomersDatabase
-import training.ram.kotlinCleanArchitecture.di.scopes.ApplicationScope
+import javax.inject.Singleton
 
 @Module
-class RoomDBModule {
-    @ApplicationScope
+object RoomDBModule {
+
     @Provides
-    fun provideRoomDB(context: SampleApplication): CustomersDatabase {
+    @Singleton
+    @JvmStatic
+    fun provideRoomDB(context: Context): CustomersDatabase {
         return Room.databaseBuilder(
-            context.applicationContext,
+            context,
             CustomersDatabase::class.java, "customerDb.db"
         )
         .build()
     }
 
-    @ApplicationScope
     @Provides
+    @Singleton
+    @JvmStatic
     fun provideCustomerDao(db: CustomersDatabase): CustomerDAO {
         return db.customerDao()
     }
