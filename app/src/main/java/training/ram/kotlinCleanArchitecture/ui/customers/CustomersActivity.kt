@@ -9,19 +9,16 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_customers.*
-import training.ram.kotlinCleanArchitecture.base.SampleApplication
-import training.ram.kotlinCleanArchitecture.di.ViewModelFactory
 import training.ram.kotlinCleanArchitecture.data.entities.Customer
 import training.ram.kotlinCleanArchitecture.di.Injector
 import training.ram.kotlin_cleanarchitecture.R.layout.activity_customers
-import javax.inject.Inject
 
 
 class CustomersActivity : AppCompatActivity() {
 
     private lateinit var customerAdapter: CustomerRecyclerViewAdapter
     private var customersList = mutableListOf<Customer>()
-  //  @Inject lateinit var viewmodelFactory: ViewModelFactory
+
     private val viewModel: CustomersViewModel by lazy {
         ViewModelProviders.of(this,
             Injector.get().viewModelFactory()
@@ -30,15 +27,10 @@ class CustomersActivity : AppCompatActivity() {
   }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(activity_customers)
         initRecyclerView()
-       /* SampleApplication
-            .applicationComponent
-            .inject(this)
-         viewModel = ViewModelProviders.of(this, viewmodelFactory).get(CustomersViewModel::class.java)
-*/
-
         observeCustomersData()
         observeErrors()
         observeProgress()

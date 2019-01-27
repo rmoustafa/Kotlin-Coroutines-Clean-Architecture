@@ -25,7 +25,7 @@ interface CustomerDAO {
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun saveCustomers(vararg customers: Customer)
+    fun saveCustomers( customers: List<Customer>)
 
     /**
      * Delete all customers.
