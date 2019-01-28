@@ -12,13 +12,11 @@ Architectural approach
 -
 ![clean_architecture_layers](https://user-images.githubusercontent.com/16631131/44717362-73084080-aac5-11e8-9029-10b3da073804.png)
 
-# Android Architecture components Approach
-![final-architecture](https://user-images.githubusercontent.com/16631131/44723199-fb8fdc80-aad7-11e8-88b4-dbd93d7441a9.png)
 
-
-Android Architecture components with clean Architectural reactive approach
+Android Architecture components with clean Architectural 
 -
-![clean_architecture_layers_details2](https://user-images.githubusercontent.com/16631131/44722878-2594cf00-aad7-11e8-8820-feedf17b0ba1.png)
+![clean](https://user-images.githubusercontent.com/16631131/51852946-38d2f180-2338-11e9-918e-5bbcaaa4074f.png)
+
 
 
 ## Libraries
@@ -30,6 +28,7 @@ Android Architecture components with clean Architectural reactive approach
 - Retrofit for REST api communication
 - GSon
 - Timber for logging
+- JUnit for unit testing
 - espresso for UI tests
 - mockito for mocking in tests
 
