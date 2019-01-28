@@ -3,10 +3,7 @@ package training.ram.kotlinCleanArchitecture.ui.customers
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import training.ram.kotlinCleanArchitecture.data.entities.Customer
 import training.ram.kotlinCleanArchitecture.data.remote.ApiResponse
 import training.ram.kotlinCleanArchitecture.domain.GetCustomersUseCase
@@ -37,7 +34,7 @@ class CustomersViewModel @Inject constructor(private val getCustomersUseCase: Ge
 
     fun getCustomerList(){
         _isLoading.value = true
-        job = GlobalScope.launch(Dispatchers.IO){
+        job = CoroutineScope(Dispatchers.Default).launch{
             val result = getCustomersUseCase(true)
             _isLoading.postValue(false)
             when(result){

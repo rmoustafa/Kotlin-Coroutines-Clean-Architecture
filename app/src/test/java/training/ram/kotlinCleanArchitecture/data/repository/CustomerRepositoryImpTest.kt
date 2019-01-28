@@ -2,12 +2,14 @@ package training.ram.kotlinCleanArchitecture.data.repository
 
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
+import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito.*
 import retrofit2.Response.success
 import training.ram.kotlinCleanArchitecture.data.entities.Customer
 import training.ram.kotlinCleanArchitecture.data.local.CustomerDAO_Impl
+import training.ram.kotlinCleanArchitecture.data.remote.ApiResponse
 import training.ram.kotlinCleanArchitecture.data.remote.ServiceApi
 
 class CustomerRepositoryImpTest {
@@ -31,7 +33,7 @@ class CustomerRepositoryImpTest {
             `when`(mockServiceApi.getCustomerList()).thenReturn(deferred)
            val result = repo.getCustomers(true)
             verify(mockServiceApi).getCustomerList()
-            //Assert.assertEquals(ApiResponse.Success(customers), ApiResponse.Success(result))
+            Assert.assertEquals(ApiResponse.Success(customers), result)
         }
         verify(mockDao).deleteAllCustomers()
         verify(mockDao).saveCustomers(customers)
